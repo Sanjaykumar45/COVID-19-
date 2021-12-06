@@ -10,7 +10,560 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
 
     <!-- custom css file link  -->
-    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
+:root{
+    --blue:#3c6382;
+    --dark-blue:#0a3d62;
+}
+
+*{
+    font-family: 'Poppins', sans-serif;
+    margin:0; padding:0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border:none;
+    text-transform: capitalize;
+    transition: all .3s cubic-bezier(.38,1.15,.7,1.12);
+}
+
+*::selection{
+    background:var(--dark-blue);
+    color:#fff;
+}
+
+html{
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+section{
+    min-height: 100vh;
+    padding:1rem 9%;
+    padding-top: 8rem;
+}
+
+.heading{
+    text-align: center;
+    color:var(--blue);
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    font-weight: normal;
+    padding:1rem;
+}
+
+header{
+    width:100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top:0; left:0;
+    z-index: 1000;
+    padding:2rem;
+    background-color: white;
+    box-shadow:  -3px -3px 7px #ffffff, 
+    3px 3px 5px #ceced1;
+}
+
+header .logo{
+    font-size: 2.5rem;
+    color:var(--dark-blue);
+}
+
+header .logo span{
+    color:orange;
+}
+
+header .navbar a{
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin-left: .7rem;
+    padding:.5rem 2rem;
+    border-radius: .5rem;
+    color:var(--dark-blue);
+}
+
+header .navbar a.active,
+header .navbar a:hover{
+    background: orange;
+    color:#fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+header.sticky{
+    background:#fff;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+}
+
+#menu{
+    font-size: 3rem;
+    color:orange;
+    cursor: pointer;
+    display: none;
+}
+
+.home{
+    background:url(https://www.covid19info.host/images/home-bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.home .content{
+    text-align: center;
+    padding-top: 3rem;
+}
+
+.home .content h1{
+    font-size: 5rem;
+    color:orange;
+}
+
+.home .content h3{
+    font-size: 4rem;
+    color:var(--blue);
+    font-weight: normal;
+}
+
+.home .content .btn{
+    display: inline-block;
+    padding:.7rem 3rem;
+    color:#fff;
+    background:var(--blue);
+    border-radius: .5rem;
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.1);
+    margin-top: 1rem;
+    font-size: 1.7rem;
+}
+
+.home .content .btn:hover{
+    background:orange;
+}
+
+.prevent .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.prevent .box-container .box{
+    flex:1 1 30rem;
+    border-radius: .5rem;
+    margin:1rem;
+    padding:1rem;
+    text-align: center;
+}
+
+.prevent .box-container .box img{
+    height:12rem;
+    padding:1rem;
+}
+
+.prevent .box-container .box h3{
+    color:orange;
+    font-size: 2rem;
+}
+
+.prevent .box-container .box p{
+    color:var(--dark-blue);
+    font-size: 1.4rem;
+    padding:1rem;
+}
+
+.prevent .box-container .box:hover{
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+.symptoms{
+    background:url(https://www.covid19info.host/images/background-img.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.symptoms .column{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.symptoms .column .main-image img{
+    width: 43vh;
+}
+
+.symptoms .column .box-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.symptoms .column .box-container .box{
+    margin:1rem;
+    text-align: center;
+}
+
+.symptoms .column .box-container .box img{
+    width:20rem;
+    padding:1rem;
+}
+
+.symptoms .column .box-container .box h3{
+    font-size: 2rem;
+    color:orange;
+    cursor: pointer;
+}
+
+.precautions .column{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.precautions .column .box-container{
+    margin:1.5rem;
+    flex:1 1 50rem;
+    border:.1rem solid rgba(0,0,0,.1);
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,0.5);
+    border-radius: .5rem;
+}
+
+.precautions .column .box-container .title{
+    padding:1.5rem .5rem;
+    text-align: center;
+    font-size: 2.5rem;
+    background:green;
+    color:#fff;
+}
+
+.precautions .column .box-container:last-child .title{
+    background:#ff3300;
+}
+
+.precautions .column .box-container .box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding:1rem;
+}
+
+.precautions .column .box-container .box img{
+    width:15rem;
+    padding:1rem;
+}
+
+.precautions .column .box-container .box h3{
+    font-size: 2rem;
+    color:orange;
+    cursor: pointer;
+}
+
+.precautions .column .box-container .box p{
+    font-size: 1.2rem;
+    font-weight: bold;
+    color:var(--dark-blue);
+    padding:1rem 0;
+}
+
+.doctor{
+    background:url(https://www.covid19info.host/images/background-img.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.doctor .box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.doctor .box-container .box{
+    border-radius: .5rem;
+    padding:1rem;
+    margin:1.5rem;
+    text-align: center;
+    background:#fff;
+    border:.1rem solid rgba(0,0,0,.1);
+    width:33rem;
+}
+
+.doctor .box-container .box:hover{
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.5);
+    cursor: pointer;
+}
+
+.doctor .box-container .box img{
+    margin:1rem;
+    border-radius: 50%;
+    height:20rem;
+    width:20rem;
+    object-fit: cover;
+    background:orange;
+}
+
+.doctor .box-container .box h3{
+    font-size: 2rem;
+    color:orange;
+}
+
+.doctor .box-container .box span{
+    font-size: 1.5rem;
+    color:var(--dark-blue);
+}
+
+.doctor .box-container .box .share{
+    border-top: .1rem solid rgba(0,0,0,.1);
+    padding:1rem;
+    margin-top: 1rem;
+}
+
+.doctor .box-container .box .share a{
+    border-radius: 50%;
+    height: 4.5rem;
+    width:4.5rem;
+    line-height: 4.5rem;
+    font-size: 2rem;
+    margin: .4rem;
+    background:#eee;
+    color:var(--blue);
+}
+
+.doctor .box-container .box .share a:hover{
+    background:orange;
+    color:#fff;
+    transform: rotate(360deg);
+}
+
+.hand-wash .column{
+    display: flex;
+    justify-content: center;
+}
+
+.hand-wash .column .main-image img{
+    width:25vw;
+}
+
+.hand-wash .column .box-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.hand-wash .column .box-container .box{
+    text-align: center;
+    margin:2rem;
+}
+
+.hand-wash .column .box-container .box img{
+    width: 17rem;
+    height: 17rem;
+    padding:1rem;
+}
+
+.hand-wash .column .box-container .box h3{
+    font-size: 2rem;
+    color:orange;
+    cursor: pointer;
+}
+
+.footer{
+    background:url(https://www.covid19info.host/images/background-img.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+.footer .box-container{
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.footer .box-container .box{
+    flex:1 1 25rem;
+    margin:2rem;
+}
+
+.footer .box-container .box h3{
+    font-size: 2.5rem;
+    color:orange;
+    padding:1rem 0;
+}
+
+.footer .box-container .box p{
+    font-size: 1.5rem;
+    font-weight: bold;
+    color:var(--dark-blue);
+    padding:.5rem 0;
+}
+
+.footer .box-container .box a{
+    font-size: 1.5rem;
+    color:var(--dark-blue);
+    padding:.5rem 0;
+    display: block;
+}
+
+.footer a:hover{
+    text-decoration: underline;
+}
+
+.footer .credit{
+    font-size: 2rem;
+    font-weight: normal;
+    text-align: center;
+    border-top: .1rem solid rgba(0,0,0,.1);
+    padding:2.5rem 1rem;
+    color:var(--dark-blue);
+}
+
+.footer .credit a{
+    color:orange;
+    font-weight: bold;
+}
+
+.scroll-top{
+    position: fixed;
+    bottom:2.5rem; right:1.5rem;
+    z-index: 1000;
+}
+
+.scroll-top img{
+    width:8rem;
+    animation: float 3s linear infinite;
+}
+
+@keyframes float{
+    100%, 0%{
+        transform: translateY(0rem);
+    }
+
+    50%{
+        transform: translateY(-3rem);
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* media queries  */
+
+@media (max-width:1200px){
+
+    html{
+        font-size: 55%;
+    }
+
+}
+
+@media (max-width:991px){
+
+    section{
+        padding:1rem 3%;
+        padding-top: 8rem;
+    }
+
+    #menu{
+        display: block;
+    }
+
+    header .navbar{
+        position: absolute;
+        top:100%; left: 0;
+        width:100%;
+        background:#fff;
+        padding:2rem;
+        border-top: .1rem  solid rgba(0,0,0,.1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+    }
+
+    header .navbar.nav-toggle{
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    header .navbar a{
+        display: block;
+        margin:1.5rem 0;
+        font-size: 2rem;
+    }
+
+    .fa-times{
+        transform: rotate(180deg);
+    }
+
+    .symptoms .column .main-image img{
+        display: none;
+    }
+
+    .hand-wash .column .main-image img{
+        display: none;
+    }
+
+}
+
+@media (max-width:768px){
+
+    html{
+        font-size: 50%;
+    }
+
+    .home .content h1{
+        font-size: 4rem;
+    }
+
+    .home .content h3{
+        font-size: 3.5rem;
+    }
+
+}
+
+@media (max-width:450px){
+
+    .home .content h1{
+        font-size: 3.5rem;
+    }
+
+    .home .content h3{
+        font-size: 2.5rem;
+    }
+
+    .symptoms .column .box-container .box img{
+        width:14rem;
+    }
+
+    .precautions .column .box-container .box{
+        flex-flow: column;
+        text-align: center;
+    }
+
+    .doctor .box-container .box{
+        width:100%;
+    }
+
+}
+    </style>
 
 </head>
 <body>
@@ -59,37 +612,37 @@
     <div class="box-container">
 
         <div class="box">
-            <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\pre-1.png" alt="">
+            <img src="https://centro-futura.com/wp-content/uploads/2021/08/pre-1.png" alt="">
             <h3>wash your place</h3>
             <p>Clean high touch surfaces regularly or as needed and after you have visitors in your home. If surfaces are dirty, clean them using detergent or soap and water prior to disinfection.</p>
         </div>
 
         <div class="box">
-            <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\pre-2.png" alt="">
+            <img src="https://centro-futura.com/wp-content/uploads/2021/08/pre-2.png" alt="">
             <h3>maintain distance</h3>
             <p>Avoid close contact with people who are sick. Stay at least 6 feet (about 2 arm lengths) from other people, especially if you are at higher risk of getting very sick.</p>
         </div>
 
         <div class="box">
-            <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\pre-3.png" alt="">
+            <img src="https://centro-futura.com/wp-content/uploads/2021/08/pre-3.png" alt="">
             <h3>don't touch face</h3>
             <p>To reduce the spread of coronavirus (COVID-19), experts recommend that you not touch your face because the virus is transmitted through mucous membranes in the mouth, nose and eyes.</p>
         </div>
 
         <div class="box">
-            <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\pre-4.png" alt="">
+            <img src="https://centro-futura.com/wp-content/uploads/2021/08/pre-4.png" alt="">
             <h3>wash your hand</h3>
             <p>Wash your hands often with soap and water for at least 20 seconds especially after you have been in a public place, or after blowing your nose, coughing, or sneezing.</p>
         </div>
 
         <div class="box">
-            <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\pre-5.png" alt="">
+            <img src="https://centro-futura.com/wp-content/uploads/2021/08/pre-5.png" alt="">
             <h3>use napkin</h3>
             <p>Always cover your mouth and nose with a tissue when you cough or sneeze, or use the inside of your elbow and do not spit.</p>
         </div>
 
         <div class="box">
-            <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\pre-6.png" alt="">
+            <img src="https://centro-futura.com/wp-content/uploads/2021/08/pre-6.png" alt="">
             <h3>wear a mask</h3>
             <p>Everyone 2 years or older who is not fully vaccinated should wear a mask in public places. Covers your nose and mouth and can be secured under your chin.</p>
         </div>
@@ -109,38 +662,38 @@
     <div class="column">
 
         <div class="main-image">
-            <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\main-symp-img.png" alt="">
+            <img src="https://centro-futura.com/wp-content/uploads/2021/08/main-symp-img.png" alt="">
         </div>
 
         <div class="box-container">
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\symp-a.png" alt="">
+                <img src="https://centro-futura.com/wp-content/uploads/2021/08/symp-a.png" alt="">
                 <h3>dry cough</h3>
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\symp-b.png" alt="">
+                <img src="https://centro-futura.com/wp-content/uploads/2021/08/symp-b.png" alt="">
                 <h3>sore throat</h3>
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\symp-c.png" alt="">
+                <img src="https://centro-futura.com/wp-content/uploads/2021/08/symp-c.png" alt="">
                 <h3>cold</h3>
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\symp-d.png" alt="">
+                <img src="https://centro-futura.com/wp-content/uploads/2021/08/symp-d.png" alt="">
                 <h3>fever</h3>
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\symp-e.png" alt="">
+                <img src="https://centro-futura.com/wp-content/uploads/2021/08/symp-e.png" alt="">
                 <h3>headache</h3>
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\symp-f.png" alt="">
+                <img src="https://centro-futura.com/wp-content/uploads/2021/08/symp-f.png" alt="">
                 <h3>vomiting</h3>
             </div>
 
@@ -165,7 +718,7 @@
             <h3 class="title">things you should DO</h3>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\do-img1.png" alt="">
+                <img src="https://www.covid19info.host/images/do-img1.png" alt="">
                 <div class="info">
                     <h3>wash your hand</h3>
                     <p>Wash your hands often with soap and water for at least 20 seconds especially after you have been in a public place, or after blowing your nose, coughing, or sneezing.</p>
@@ -173,7 +726,7 @@
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\do-img2.png" alt="">
+                <img src="https://www.covid19info.host/images/do-img2.png" alt="">
                 <div class="info">
                     <h3>always wear a mask</h3>
                     <p>Everyone always wear a mask in public places. Covers your nose and mouth and can be secured under your chin.</p>
@@ -181,7 +734,7 @@
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\do-img3.png" alt="">
+                <img src="https://www.covid19info.host/images/do-img3.png" alt="">
                 <div class="info">
                     <h3>stay home during fever</h3>
                     <p>If you have a fever, cough or other symptoms, you might have COVID-19. Do not leave your home, except to get medical care. Do not visit public areas.</p>
@@ -195,7 +748,7 @@
             <h3 class="title">things you should NOT DO</h3>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\dont-img1.png" alt="">
+                <img src="https://www.covid19info.host/images/dont-img1.png" alt="">
                 <div class="info">
                     <h3>avoid close contact with animals</h3>
                     <p>Some coronaviruses that infect animals can be spread to people and then spread between people,should avoid contact with animals, including pets, livestock, and wildlife.</p>
@@ -203,7 +756,7 @@
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\dont-img2.png" alt="">
+                <img src="https://www.covid19info.host/images/dont-img2.png" alt="">
                 <div class="info">
                     <h3>avoid close contact with peoples</h3>
                     <p>Avoid close contact with people who are sick. Stay at least 6 feet (about 2 arm lengths) from other people, especially if you are at higher risk of getting very sick.</p>
@@ -211,7 +764,7 @@
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\dont-img3.png" alt="">
+                <img src="https://www.covid19info.host/images/dont-img3.png" alt="">
                 <div class="info">
                     <h3>avoid crowded area</h3>
                     <p>Being in crowded places like restaurants, bars, fitness centers, or movie theaters puts you at higher risk for COVID-19, should avoid crowded area. If indoors, bring in fresh air by opening windows and doors, if possible.</p>
@@ -235,7 +788,7 @@
     <div class="box-container">
 
         <div class="box">
-            <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\doc1.png" alt="">
+            <img src="https://covid-19info.tk/assest/img/doc1.png" alt="">
             <h3>Dr.Matthew</h3>
             <span>Chief Doctor</span>
             <div class="share">
@@ -248,7 +801,7 @@
         </div>
 
         <div class="box">
-            <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\doc2.png" alt="">
+            <img src="https://www.covid19info.host/images/doc2.png" alt="">
             <h3>Dr.Sera</h3>
             <span>senior expert</span>
             <div class="share">
@@ -261,8 +814,8 @@
         </div>
 
         <div class="box">
-            <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\doc3.png" alt="">
-            <h3>Nancy Baxter</h3>
+            <img src="https://www.covid19info.host/images/doc3.png" alt="">
+            <h3>Dr.Nancy Baxter</h3>
             <span>Nurse</span>
             <div class="share">
                 <a href="#" class="fab fa-whatsapp"></a>
@@ -290,44 +843,45 @@
         <div class="box-container">
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\wash-a.png" alt="">
+                <img src="https://centro-futura.com/wp-content/uploads/2021/08/wash-a.png" alt="">
                 <h3>water and soap</h3>
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\wash-b.png" alt="">
+                <img src="https://centro-futura.com/wp-content/uploads/2021/08/wash-b.png" alt="">
                 <h3>palm to palm</h3>
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\wash-c.png" alt="">
+                <img src="https://centro-futura.com/wp-content/uploads/2021/08/wash-c.png" alt="">
                 <h3>Between Fingers</h3>
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\wash-d.png" alt="">
+                <img src="https://centro-futura.com/wp-content/uploads/2021/08/wash-d.png" alt="">
                 <h3>Focus on Thumbs</h3>
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\wash-e.png" alt="">
+                <img src="https://centro-futura.com/wp-content/uploads/2021/08/wash-e.png" alt="">
                 <h3>Back of Hands</h3>
             </div>
 
             <div class="box">
-                <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\wash-f.png" alt="">
+                <img src="https://centro-futura.com/wp-content/uploads/2021/08/wash-f.png" alt="">
                 <h3>Focus on wrist</h3>
             </div>
 
         </div>
 
         <div class="main-image">
-            <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\main-wash-img.png" alt="">
+            <img src="http://kanikatandon.in/pages/covid-19/images/wash-lead.png" alt="">
         </div>
 
     </div>
 
 </section>
+
 
 <!-- hand-wash section ends -->
 
@@ -339,9 +893,10 @@
 
         <div class="box">
             <h3>about us</h3>
-            <p>Coronavirus disease (COVID-19) is an infectious disease caused by the SARS-CoV-2 virus. 
-                The virus can spread from an infected person’s mouth or nose in small liquid particles when they cough, sneeze, speak, sing or breathe.
-                The virus spreads more easily indoors and in crowded settings. Please follow the instruction to prevent from Coronavirus(COVID-19)</p>
+            <p>Hi! I Am SanjayKumar, A Web Designer/Developer Focused On Crafting Great Web Experiences. 
+                Designing And Coding Have Been My Passion Since The Days I Started Working With Computers 
+                But I Found Myself Into Web Design/Development. I Enjoy Creating Beautifully Designed, 
+                Intuitive And Functional Websites.</p>
         </div>
 
 
@@ -384,7 +939,7 @@
 <!-- scroll top  -->
 
 <a href="#home" class="scroll-top">
-    <img src="C:\Users\USER\Desktop\Html file\New Project\Covid-19\images\scroll-img.png" alt="">
+    <img src="https://images.vexels.com/media/users/3/145819/isolated/preview/486c34cf5b3b4badd52bc427dbeb44a1-dibujos-animados-de-cohetes.png" alt="">
 </a>
 
 
@@ -406,7 +961,68 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 
 <!-- custom js file link  -->
-<script src="js/script.js"></script>
+<!-- <script src="js/script.js"></script> -->
+<script>
+    $(document).ready(function(){
+
+$('#menu').click(function(){
+  $(this).toggleClass('fa-times');
+  $('.navbar').toggleClass('nav-toggle');
+});
+
+$(window).on('load scroll',function(){
+
+  $('#menu').removeClass('fa-times');
+  $('.navbar').removeClass('nav-toggle');
+
+  if($(window).scrollTop() > 0){
+    $('header').addClass('sticky');
+  }else{
+    $('header').removeClass('sticky');
+  }
+
+  if($(window).scrollTop() > 0){
+    $('.scroll-top').show();
+  }else{
+    $('.scroll-top').hide();
+  }
+
+  // scroll spy 
+
+  $('section').each(function(){
+
+    let top = $(window).scrollTop();
+    let offset = $(this).offset().top - 200;
+    let id = $(this).attr('id');
+    let height = $(this).height();
+
+    if(top > offset && top < offset + height){
+      $('.navbar a').removeClass('active');
+      $('.navbar').find(`[href="#${id}"]`).addClass('active');
+    }
+
+  });
+
+});
+
+// smooth scrolling 
+
+$('a[href*="#"]').on('click',function(e){
+
+  $('html, body').animate({
+
+    scrollTop : $($(this).attr('href')).offset().top,
+
+  },
+    500,
+    'linear'
+  );
+
+});
+
+});
+
+</script>
 
 
 </body>
